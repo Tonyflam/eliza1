@@ -1,0 +1,9 @@
+src/
+tsconfig.json
+.env
+.env.local
+*.log
+.DS_Store
+node_modules/
+__tests__/
+*.test.ts
