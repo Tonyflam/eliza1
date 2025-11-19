@@ -1,0 +1,91 @@
+{
+  "name": "@elizaos/plugin-openchat",
+  "description": "OpenChat (oc.app) plugin for ElizaOS - enables agents to interact with OpenChat platform",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "packageType": "plugin",
+  "platform": "node",
+  "license": "MIT",
+  "author": "Tonyflam",
+  "keywords": [
+    "plugin",
+    "elizaos",
+    "openchat",
+    "icp",
+    "internet-computer",
+    "chat",
+    "messaging"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tonyflam/eliza1"
+  },
+  "homepage": "https://github.com/Tonyflam/eliza1",
+  "bugs": {
+    "url": "https://github.com/Tonyflam/eliza1/issues"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "dependencies": {
+    "@dfinity/agent": "^2.1.4",
+    "@dfinity/candid": "^2.1.4",
+    "@dfinity/identity": "^2.1.4",
+    "@dfinity/principal": "^2.1.4",
+    "axios": "^1.6.0",
+    "ws": "^8.16.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.3.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "lint": "prettier --write ./src",
+    "format": "prettier --write ./src",
+    "format:check": "prettier --check ./src",
+    "test": "echo 'Tests will be implemented'"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "agentConfig": {
+    "pluginType": "elizaos:plugin:1.0.0",
+    "pluginParameters": {
+      "OPENCHAT_IDENTITY": {
+        "type": "string",
+        "description": "OpenChat identity (private key or seed phrase)"
+      },
+      "OPENCHAT_USER_ID": {
+        "type": "string",
+        "description": "OpenChat user ID (principal)"
+      },
+      "OPENCHAT_USERNAME": {
+        "type": "string",
+        "description": "OpenChat username"
+      },
+      "OPENCHAT_API_URL": {
+        "type": "string",
+        "description": "OpenChat API URL (defaults to mainnet)",
+        "default": "https://5v72r-4qaaa-aaaaf-aaapq-cai.ic0.app"
+      }
+    }
+  }
+}
